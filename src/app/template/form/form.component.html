@@ -1,0 +1,24 @@
+<p>form works!</p>
+<form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div ngModelGroup="ngModelGroup" #nameCtrl="ngModelGroup" >
+        <label for="name">Name: </label>
+        <input type="text" name="name" ngModel>
+        <br>
+        <label for="password">Password: </label>
+        <input type="text" name="password" ngModel>  
+        <br>
+        <label for="confirm_password">Confirm Password: </label>
+        <input type="text" name="confirm_password" ngModel>
+        <br>
+        <label for="race">Race: </label>
+        <input type="text" name="race" ngModel>
+        <br>
+        <label for="class">Class: </label>
+        <input type="class" name="class" ngModel>
+        <select name="class" ngModel>
+            <option *ngFor="let class of classes$ | async" [value]="class">{{ class.name }}</option>
+        </select>
+        <hr/>
+        <button type="submit">Submit</button>
+    </div>
+</form>

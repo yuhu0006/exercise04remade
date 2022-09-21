@@ -1,0 +1,27 @@
+<p>reactive-module works!</p>
+
+<form [formGroup]="classForm" (ngSubmit)="onSubmit()">
+    <div class="form-wrapper">
+        <div formGroupName="name">
+            <label for="name">Name</label>
+            <input type="text" formControlName="name">
+            <br>
+            <label for="password">Password</label>
+            <input type="password" formControlName="password">    
+            <br>    
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" formControlName="confirm_password">
+            <br>
+            <label for="race">Race</label>
+            <input type="text" formControlName="race">
+            <br>
+            <label for="class">Class</label>
+            <input type="class" formControlName="class">
+            <select formControlName="class">
+                <option *ngFor = "let class of classes$ | async" [ngValue]="class">{{ class.name }}</option>
+            </select>
+            <br/>
+            <button type="submit">Submit</button>
+        </div>       
+    </div>
+</form>
